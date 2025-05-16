@@ -1,10 +1,254 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-    <meta charset="UTF-8" />
-    <title>Raozhangwen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raozhangwen | 饶章文</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #6e8efb, #a777e3);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .lang-switch button {
+            background: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .lang-switch button:hover {
+            background: #f0f0f0;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            color: #6e8efb;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .section ul {
+            list-style: none;
+        }
+
+        .section ul li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section ul li::before {
+            content: "•";
+            color: #6e8efb;
+            position: absolute;
+            left: 0;
+        }
+
+        .projects .project-card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .contact a {
+            color: #6e8efb;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .header p {
+                font-size: 0.9rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    Raozhangwen
+    <div class="container">
+        <div class="header">
+            <img src="https://avatars.githubusercontent.com/u/173532734" alt="Profile Photo">
+            <h1 id="name">Raozhangwen | 饶章文</h1>
+            <p id="title">Software Engineer</p>
+            <div class="lang-switch">
+                <button onclick="changeLanguage('en')">English</button>
+                <button onclick="changeLanguage('zh')">中文</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 id="about-title">About Me</h2>
+                <p id="about-content">I'm a dedicated software engineer with over 20 years of experience in building scalable web and mobile applications. I specialize in JavaScript, Python, and cloud technologies, and I love solving complex problems with clean, efficient code.</p>
+            </div>
+
+            <!-- 技能 -->
+            <div class="section">
+                <h2 id="skills-title">Skills</h2>
+                <ul id="skills-content">
+                    <li>Java (Springboot, JVM)</li>
+                    <li>JavaScript (Vue, React, Node.js)</li>
+                    <li>Python (Django, Flask)</li>
+                    <li>Cloud Computing (AWS, Azure)</li>
+                    <li>Database Management (PostgreSQL, MongoDB)</li>
+                    <li>DevOps (Docker, Kubernetes)</li>
+                </ul>
+            </div>
+
+            <div class="section projects">
+                <h2 id="projects-title">Projects</h2>
+                <div class="project-card" id="project1">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Developed a full-stack e-commerce solution using React and Node.js, integrated with Stripe for payments. Deployed on AWS.</p>
+                </div>
+                <div class="project-card" id="project2">
+                    <h3>Project Management App</h3>
+                    <p>Built a mobile app with Flutter and Firebase, featuring real-time collaboration tools.</p>
+                </div>
+            </div>
+            <div class="section contact">
+                <h2 id="contact-title">Contact</h2>
+                <p>Email: <a href="mailto:raozhangwen@google.com">raozhangwen@gmail.com</a></p>
+                <p>GitHub: <a href="https://github.com/raozhangwen" target="_blank">github.com/raozhangwen</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                name: "Raozhangwen",
+                title: "Software Engineer",
+                "about-title": "About Me",
+                "about-content": "I'm a dedicated software engineer with over 20 years of experience in building scalable web and mobile applications. I specialize in JavaScript, Python, and cloud technologies, and I love solving complex problems with clean, efficient code.",
+                "skills-title": "Skills",
+                "skills-content": [
+                    "Java (Springboot, JVM)",
+                    "JavaScript (React, Node.js)",
+                    "Python (Django, Flask)",
+                    "Cloud Computing (AWS, Azure)",
+                    "Database Management (PostgreSQL, MongoDB)",
+                    "DevOps (Docker, Kubernetes)"
+                ],
+                "projects-title": "Projects",
+                "project1": "E-Commerce Platform\nDeveloped a full-stack e-commerce solution using React and Node.js, integrated with Stripe for payments. Deployed on AWS.",
+                "project2": "Project Management App\nBuilt a mobile app with Flutter and Firebase, featuring real-time collaboration tools.",
+                "contact-title": "Contact"
+            },
+            zh: {
+                name: "饶章文",
+                title: "软件工程师",
+                "about-title": "关于我",
+                "about-content": "我是一位致力于软件开发的工程师，拥有超过20年的经验，专注于构建可扩展的网页和移动应用程序。我擅长JavaScript、Python和云技术，喜欢用干净、高效的代码解决复杂问题。",
+                "skills-title": "技能",
+                "skills-content": [
+                    "JavaScript (React, Node.js)",
+                    "Python (Django, Flask)",
+                    "云计算 (AWS, Azure)",
+                    "数据库管理 (PostgreSQL, MongoDB)",
+                    "DevOps (Docker, Kubernetes)"
+                ],
+                "projects-title": "项目",
+                "project1": "电子商务平台\n使用React和Node.js开发了一个全栈电子商务解决方案，集成了Stripe支付系统，部署在AWS上。",
+                "project2": "项目管理应用\n使用Flutter和Firebase构建了一个移动应用，具备实时协作工具。",
+                "contact-title": "联系方式"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById("name").textContent = translations[lang].name;
+            document.getElementById("title").textContent = translations[lang].title;
+            document.getElementById("about-title").textContent = translations[lang]["about-title"];
+            document.getElementById("about-content").textContent = translations[lang]["about-content"];
+            document.getElementById("skills-title").textContent = translations[lang]["skills-title"];
+            document.getElementById("skills-content").innerHTML = translations[lang]["skills-content"].map(item => `<li>${item}</li>`).join("");
+            document.getElementById("projects-title").textContent = translations[lang]["projects-title"];
+            document.getElementById("project1").innerHTML = `<h3>${translations[lang]["project1"].split("\n")[0]}</h3><p>${translations[lang]["project1"].split("\n")[1]}</p>`;
+            document.getElementById("project2").innerHTML = `<h3>${translations[lang]["project2"].split("\n")[0]}</h3><p>${translations[lang]["project2"].split("\n")[1]}</p>`;
+            document.getElementById("contact-title").textContent = translations[lang]["contact-title"];
+        }
+    </script>
 </body>
 </html>
